@@ -4,11 +4,8 @@ Welcome to the Home Finder app, a platform for finding and exploring homes for s
 ## Table of Contents
 
 - [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
+- [Installation](#Installation)
 - [Technology Stack](#api-documentation)
-- [Contributing](#contributing)
 
 ## Features
 User 
@@ -87,10 +84,6 @@ System
 - Manage Property Documents
 - Display Property History
 - Provide Mortgage and Financial Tools
-
-## Getting Started
-### Prerequisites
-- npm install
 
 ### Installation
 
