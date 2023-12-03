@@ -4,10 +4,11 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
-const ErrorHandler = require('./Helpers/Controllers/errCtr');
-const appError = require('./src/Helpers/appError');
 
-const authRouter = require('./Helpers/Routes/authRoute');
+const ErrorHandler = require('./Controllers/errCtr');
+const appError = require('./Helpers/appError');
+
+const authRouter = require('./Routes/authRoute');
 // const userRouter = require('./Routes/userRoute');
 
 app.use(cors());

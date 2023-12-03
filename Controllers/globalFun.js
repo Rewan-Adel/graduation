@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler');
-const appError     = require('../../src/Helpers/appError');
+const appError     = require('../Helpers/appError');
 const cloudinary  = require('../config/cloudinary');
 
 let data;
