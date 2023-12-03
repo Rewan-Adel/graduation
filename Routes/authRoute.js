@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const {isValidUser} = require('../MiddleWares/isValideUser');
+const {isValidUser} = require('../../src/MiddleWares/isValideUser');
 const {verifyToken, isValidResetToken} = require('../Helpers/authToken');
-const upload = require('../Helpers/multer');
+const upload = require('../../src/Helpers/multer');
 const {
     signUp,
     verifyEmail,

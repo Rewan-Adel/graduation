@@ -1,11 +1,11 @@
 const User = require('../Models/userModel');
 const asyncHandler = require('express-async-handler');
-const appError = require('../Helpers/appError');
+const appError = require('../../src/Helpers/appError');
 const {verifyEmail, resetPassEmail} = require('../Helpers/sendMail');
 const crypto = require('crypto');
 const { 
     uploadImage
-} = require('../Controllers/globalFun');
+} = require('./globalFun');
 
 let user;
 
