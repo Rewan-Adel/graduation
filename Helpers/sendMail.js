@@ -32,7 +32,7 @@ exports.verifyEmail = asyncHandler( async(user, res, next) =>{
     setTimeout(() => {
         user.otp = null;
         user.save();
-     }, 90*1000); //expires after 1:30 hours
+     }, 90*60*1000); //expires after 1:30 hours
 
     const msg = {
         to: user.email, 
