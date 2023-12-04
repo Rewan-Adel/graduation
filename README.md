@@ -139,14 +139,14 @@ Android (for mobile)
 Website (for desktop)
 
 - Front-end:
-Kotlin (for Android)
-Flutter (for Ios)
-HTML, CSS (for Website)
+    - Kotlin (for Android)
+    - Flutter (for Ios)
+    - HTML, CSS (for Website)
 
 - Back-end:
-Node.js
-Express
-Mongoose (for MongoDB)
+    - Node.js
+    - Express
+    - Mongoose (for MongoDB)
 
 - Database:
-MongoDB
+    - MongoDB
