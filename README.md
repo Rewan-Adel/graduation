@@ -114,7 +114,6 @@ System
 
 # Technology Stack
 - Platform:
-
 Android (for mobile)
 Website (for desktop)
 
