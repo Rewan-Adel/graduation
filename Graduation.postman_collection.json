@@ -49,7 +49,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"otp\": 0\r\n}",
+									"raw": "{\r\n    \"otp\": 0\r\n\r\n\r\n}    ",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -57,7 +57,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{URL}}/api/v1/auth/verification",
+									"raw": "{{URL}}/api/v1/auth/verification/:id",
 									"host": [
 										"{{URL}}"
 									],
@@ -65,7 +65,14 @@
 										"api",
 										"v1",
 										"auth",
-										"verification"
+										"verification",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -77,7 +84,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{URL}}/api/v1/auth/resend-code",
+									"raw": "{{URL}}/api/v1/auth/resend-code/:id",
 									"host": [
 										"{{URL}}"
 									],
@@ -85,7 +92,14 @@
 										"api",
 										"v1",
 										"auth",
-										"resend-code"
+										"resend-code",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
 									]
 								}
 							},
@@ -182,135 +196,165 @@
 					]
 				},
 				{
-					"name": "Log In",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"\",\r\n    \"password\": \"\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{URL}}/api/v1/auth/login",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"auth",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Forgot Password",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{URL}}/api/v1/auth/forgot-pass",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"auth",
-								"forgot-pass"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Verify Reset password link",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/api/v1/auth/verify-token/:token/:id",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"auth",
-								"verify-token",
-								":token",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "token",
-									"value": ""
+					"name": "log in",
+					"item": [
+						{
+							"name": "Log In",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"\",\r\n    \"password\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
 								},
-								{
-									"key": "id",
-									"value": ""
+								"url": {
+									"raw": "{{URL}}/api/v1/auth/login",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
 								}
-							]
+							},
+							"response": []
+						},
+						{
+							"name": "log out",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/auth/logout",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Reset Password",
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"password\":\"\", //new password\r\n    \"confirmPass\":\"\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{URL}}/api/v1/auth/reset-pass/:token/:id",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"auth",
-								"reset-pass",
-								":token",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "token",
-									"value": ""
+					"name": "Password",
+					"item": [
+						{
+							"name": "Forgot Password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
 								},
-								{
-									"key": "id",
-									"value": ""
+								"url": {
+									"raw": "{{URL}}/api/v1/auth/forgot-pass",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"forgot-pass"
+									]
 								}
-							]
+							},
+							"response": []
+						},
+						{
+							"name": "Verify Reset password link",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/auth/verify-token/:token/:id",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"verify-token",
+										":token",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "token",
+											"value": ""
+										},
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\":\"\", //new password\r\n    \"confirmPass\":\"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/auth/reset-pass/:token/:id",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"reset-pass",
+										":token",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "token",
+											"value": ""
+										},
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				}
 			]
 		}

@@ -7,10 +7,9 @@ const {
     uploadImage
 } = require('./globalFun');
 
-let user;
 
 exports.signUp = asyncHandler( async(req, res, next) =>{
-    user = await User.findOne({email: req.body.email});
+    let user = await User.findOne({email: req.body.email});
     if(user)
        return  next(new appError('User already exists', 400));
     
@@ -19,17 +18,21 @@ exports.signUp = asyncHandler( async(req, res, next) =>{
 
     user = await User.create(req.body);
 
-    let token =  user.generateAuthToken();
-    res.cookie('jwt', token, {
-        httpOnly: true,
-        secure: true,
-        maxAge: 7*60*60*1000
+    let sending = await verifyEmail(user, res, next);
+    if(!sending){
+        await user.deleteOne();
+        return next(new appError('Something went wrong', 500));
+    }
+    
+    return res.status(200).json({
+        status: 'success',
+        message: 'Verification code has been sent',
+        user
     });
-    await verifyEmail(user, res, next);
 });
 
 exports.verifyEmail = asyncHandler( async(req, res, next) =>{
-    let user = await User.findById(req.user._id);
+    let user = await User.findById(req.params.id);
     if(!user)
         return next(new appError('User not found', 404));
     
@@ -40,27 +43,44 @@ exports.verifyEmail = asyncHandler( async(req, res, next) =>{
     user.isVerified = true;
     user.otp = null;
     await user.save();
+
+    let token =  user.generateAuthToken();
+    res.cookie('jwt', token, {
+        httpOnly: true,
+        secure: true,
+        maxAge: 7*60*60*1000
+    });
     return res.status(200).json({
         status: 'success',
+        token,
         user
     });
 })
 
 exports.resendCode = asyncHandler( async(req, res, next) =>{
-    let user = await User.findById(req.user._id);
+    let user = await User.findById(req.params.id);
     if(!user)
         return next(new appError('User not found', 404));
-
+     
     user.counter++;
 
     if(user.counter > 3){
         setTimeout(() => {
             user.counter = 0
             user.save()
-        }, 120*60*1000)
+        }, 90*1000)
         return next(new appError('You have exceeded the maximum number of attempts', 400));
     }
-    verifyEmail(user, res, next);
+    let sending = await verifyEmail(user, res, next);
+    if(!sending){
+        return next(new appError('Something went wrong', 500));
+    }
+    
+    return res.status(200).json({
+        status: 'success',
+        message: 'Verification code has been sent',
+        user
+    });
 })
 
 exports.completeSignup = asyncHandler( async(req, res, next) =>{
@@ -139,8 +159,18 @@ exports.logIn = asyncHandler( async(req, res, next) =>{
     await user.save();
 
     let link = `http://${req.headers.host}${req.baseUrl}/verify-token/${token}/${user._id}`;
-
-    resetPassEmail(link, user, res, next);
+    
+    let sending = await  resetPassEmail(link, user, res, next);
+    if(!sending){
+        return next(new appError('Something went wrong', 500));
+    }
+    
+    return res.status(200).json({
+        status: 'success',
+        message: 'Verification code has been sent',
+        user
+    });
+   
  });
 
 
@@ -167,4 +197,13 @@ exports.logIn = asyncHandler( async(req, res, next) =>{
     })
  });
 
-
+exports.logout = asyncHandler( async(req, res, next) =>{
+    res.cookie('jwt', 'loggedout', {
+        httpOnly: true,
+        secure: true,
+        maxAge: 1
+    });
+    return res.status(200).json({
+        status: 'success'
+    })
+})

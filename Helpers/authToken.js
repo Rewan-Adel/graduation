@@ -38,7 +38,7 @@ exports.isValidResetToken = asyncHandler(async(req, res, next)=>{
     ]
     });
 
-   if(!user) return next(new appError(user, 404));
+   if(!user) return next(new appError('Invalid token or expired', 404));
    return res.status(200).json({
        status: 'success',
        message: 'Valid token'

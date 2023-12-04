@@ -6,27 +6,24 @@ require('dotenv').config();
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const generateOtp = () =>{
+const generateOtp = () => {
     let otp = '';
-    for(let i = 0; i < 4; i++){
-        otp += Math.floor(Math.random() * 10);
-    }
+    do {
+        otp = Math.floor(Math.random() * 10000).toString();
+    } while (otp.length !== 4);
     return Number(otp);
 };
 
-const sendEmail = (msg, res, next) =>{
-    sgMail.send(msg).then(() => {
-        console.log('Email sent')
-        return res.status(200).json({   
-            status: 'success',
-            message: 'Email sent successfully 😄'
-        })
-    }).catch((error) => {    
-        console.error(error)
-        return next(new appError('Error sending email 😢, try again later', 500));
-    });
+const sendEmail = async (msg, res, next) => {
+    try {
+        await sgMail.send(msg);
+        console.log('Email sent');
+        return true;
+    } catch (error) {
+        console.error(error);
+        return false;
+    }
 };
-
 exports.verifyEmail = asyncHandler( async(user, res, next) =>{
     const Otp = generateOtp();
     user.otp = Otp;
@@ -34,7 +31,7 @@ exports.verifyEmail = asyncHandler( async(user, res, next) =>{
 
     setTimeout(() => {
         user.otp = null;
-         user.save();
+        user.save();
      }, 90*1000); //expires after 1:30 hours
 
     const msg = {
@@ -50,7 +47,8 @@ exports.verifyEmail = asyncHandler( async(user, res, next) =>{
         </div>
     </div>`
     }
-    sendEmail(msg, res, next);     
+    let result =  await sendEmail(msg, res, next);
+    return result;
 });
 
 exports.resetPassEmail = asyncHandler( async(link, user, res, next) =>{
@@ -67,6 +65,7 @@ exports.resetPassEmail = asyncHandler( async(link, user, res, next) =>{
         </div>
     </div>`
     }
-    sendEmail(msg, res, next);     
+    let result =  await sendEmail(msg, res, next);
+    return result;
 
 })

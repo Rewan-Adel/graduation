@@ -7,7 +7,8 @@ const {
     verifyEmail,
     resendCode,
     completeSignup,
-    setLocation, uploadImage, logIn, resetPassword, forgotPassword
+    setLocation, uploadImage, logIn, resetPassword, forgotPassword,
+    logout
 } = require('../Controllers/authCtr');
 
 
@@ -20,10 +21,11 @@ router.post('/forgot-pass', forgotPassword);
 router.get('/verify-token/:token/:id', isValidResetToken);
 router.patch('/reset-pass/:token/:id', resetPassword);
 
-router.use(verifyToken);
+router.get('/logout', logout);
 
-router.post('/verification', verifyEmail)
-router.get('/resend-code', resendCode)
+router.post('/verification/:id', verifyEmail)
+router.get('/resend-code/:id', resendCode)
+router.use(verifyToken);
 
 router.post('/upload', upload, uploadImage);
 router.post('/complete-signup',completeSignup);
