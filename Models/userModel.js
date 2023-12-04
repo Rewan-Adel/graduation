@@ -12,13 +12,14 @@ const userSchema = new mongoose.Schema({
     gender   : { type : String, enum : ['male', 'female'] },
     phone    : { type : String},
     
-    role     : { type : String, default   : 'user', enum: [] },
+    role     : { type : String, default   : 'user', enum: ['user', 'admin', 'seller'] },
     image    : {
         url :{ type : String},
         public_id :{ type : String}
     },
     location : { type : String},
-
+    wishlist : [{ type : mongoose.Schema.ObjectId, ref : 'Products'}],
+    
     otp         : { type : Number},
     counter     : { type : Number, default : 0},
     isVerified  : { type : Boolean, default : false},

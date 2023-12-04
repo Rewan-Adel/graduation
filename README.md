@@ -1,108 +1,152 @@
-# Home_finder
-Welcome to the Home Finder app, a platform for finding and exploring homes for sale or rent.
+# My_Residence
+Welcome to the My Residence app, a comprehensive platform designed to simplify the process of finding and exploring homes for sale or rent. Whether you're a user searching for the perfect property, an agent or seller looking to list homes, or an admin overseeing the platform, My Residence has you covered.
 
 ## Table of Contents
 
 - [Features](#features)
-- [Installation](#Installation)
 - [Technology Stack](#api-documentation)
 
 ## Features
 User 
-- Register
-- Log In
-- Update Profile
-- Search for Properties
-- Save Searches
-- Compare Properties
-- View Recommendations
-- View Property Details
-- Add Property to Favorites
-- Send Messages
-- Receive Messages
-- Rate Properties
-- Leave Reviews
+- Register: 
+   Create an account to access personalized features.
+- Log In:
+  Securely log in to your account.
+- Update Profile: 
+   Keep your profile information up-to-date.
+- Search for Properties:
+   Explore a vast array of properties based on your preferences.
+- Save Searches:
+   Save your favorite searches for quick access.
+- Compare Properties: 
+  Evaluate multiple properties side by side.
+- View Recommendations: 
+   Receive tailored property recommendations.
+- View Property Details: 
+   Get in-depth information about each property.
+- Add Property to Favorites:
+   Keep track of your favorite properties.
+- Send Messages: 
+   Communicate with agents, sellers, or other users.
+- Receive Messages: 
+   Stay connected with relevant updates.
+- Rate Properties: 
+  Share your feedback by rating properties.
+- Leave Reviews: 
+   Leave detailed reviews for properties you've interacted with.
 
 Admin
-- Manage Users
-- Manage Listings
-- Manage Recommendations
-- Manage Property Categories
-- Manage Property Tags
-- Monitor User Activity
-- Enforce Compliance
+- Manage Users: 
+    Administer user accounts and ensure platform compliance.
+- Manage Listings: 
+    Oversee property listings and ensure accuracy.
+- Manage Recommendations:
+     Fine-tune property recommendations for users.
+- Manage Property Categories:
+     Organize properties into logical categories.
+- Manage Property Tags:
+     Implement tags for easy property classification.
+- Monitor User Activity: 
+    Keep track of user interactions and engagement.
+- Enforce Compliance: 
+    Ensure adherence to legal and platform-specific guidelines
 
-Agent
-- Create Property Listing
-- Edit Property Listing
-- Manage Property Listings
-- Receive Inquiries
-- Schedule Open Houses
-- Receive Property Alerts
-- Access Property Insights
-
-Seller
-- Create Property Listing
-- Edit Property Listing
-- Manage Property Listings
-- Receive Inquiries
-- Schedule Open Houses
-- Receive Property Alerts
-- Access Property Insights
+Agent & Seller
+- Create Property Listing: 
+    Add detailed listings for properties.
+- Edit Property Listing:
+     Update property information as needed.
+- Manage Property Listings:
+     Organize and oversee all listed properties.
+- Receive Inquiries:
+     Respond to user inquiries about listed properties.
+- Schedule Open Houses:
+     Plan and promote property viewings.
+- Receive Property Alerts: 
+    Stay informed about relevant property updates.
+- Access Property Insights:
+     Gain valuable insights into property perfor
 
 System
-- Integrate Mapping Service
-- Geocode Property Locations
-- Display Property Listings on Map
-- Generate Property Recommendations
-- Predict Property Prices
-- Perform Image Recognition
-- Analyze User Behavior
-- Detect Fraudulent Activity
-- Provide Property Valuation
-- Offer Sentiment Analysis
-- Support Legal Compliance
-- Display Property Insights
-- Enable Messaging and Notifications
-- Support Mobile Devices
-- Ensure Data Security
-- Facilitate Social Media Integration
-- Assist with Virtual Tours
-- Provide Customer Support
-- Handle Payments
-- Implement Machine Learning Features
-- Offer Content and Information
-- Support Accessibility
-- Promote the Platform
-- Enable Community Features
-- Manage Virtual Tours and AR/VR
-- Provide Chatbot Assistance
-- Process Payments
-- Manage User Data
-- Offer User Support
-- Generate Property Reports
-- Manage Property Documents
-- Display Property History
-- Provide Mortgage and Financial Tools
+- Integrate Mapping Service:
+        Implement mapping for property locations.
+- Geocode Property Locations:
+        Convert property addresses into geographical coordinates.
+- Display Property Listings on Map:
+        Provide a visual representation of property locations.
+- Generate Property Recommendations:
+        Use algorithms to suggest personalized property recommendations.
+- Predict Property Prices:
+        Utilize machine learning to predict property prices.
+- Perform Image Recognition:
+        Enhance property listings with image recognition technology.
+- Analyze User Behavior: Gain insights into user interactions and preferences.
+- Detect Fraudulent Activity:
+        Implement measures to identify and prevent fraudulent behavior.
+- Provide Property Valuation:
+        Offer tools for users to estimate property values.
+- Offer Sentiment Analysis:
+        Analyze user reviews and sentiments.
+- Support Legal Compliance:
+        Ensure the platform complies with legal standards.
+- Display Property Insights:
+        Provide users with valuable insights into properties.
+- Enable Messaging and Notifications:
+        Facilitate communication between users.
+- Support Mobile Devices: 
+       Ensure a seamless experience on mobile devices.
+- Ensure Data Security:
+        Prioritize the security of user data.
+- Facilitate Social Media Integration: 
+       Allow users to share and interact via social media.
+- Assist with Virtual Tours:
+        Enable virtual property tours for a richer experience.
+- Provide Customer Support:
+        Offer assistance to users as needed.
+- Handle Payments: 
+       Facilitate secure transactions on the platform.
+- Implement Machine Learning Features: 
+       Leverage machine learning for enhanced features.
+- Offer Content and Information: 
+       Provide relevant content and information to users.
+- Support Accessibility:
+        Ensure the platform is accessible to users with disabilities.
+- Promote the Platform:
+        Develop strategies to promote and grow the user base.
+- Enable Community Features:
+        Foster a sense of community among platform users.
+- Manage Virtual Tours and AR/VR: 
+       Oversee virtual tours and augmented/virtual reality features.
+- Provide Chatbot Assistance:
+        Implement a chatbot for user assistance.
+- Process Payments:
+        Handle financial transactions securely.
+- Manage User Data:
+        Administer and safeguard user data.
+- Generate Property Reports:
+        Create reports for property analytics.
+- Manage Property Documents:
+        Organize and manage property-related documents.
+- Display Property History:
+        Showcase the historical data of properties.
+- Provide Mortgage and Financial Tools:
+        Offer tools for users to explore mortgage and financial options.
 
-### Installation
-
-1. Clone the repository: https://github.com/Rewan-Adel/Home_finder.git
-2. Create a .env file in the project root and configure your environment variables. You can use the provided .env.example file as a template.
-
-.env.example:
-```markdown file
-NODE_ENV =development
-PORT = 8080
-MONGO_URI  = your_database_uri
-JWT_SECRET = jesonwebtoken_secret_key
-```
-4. run the server
-```markdown file
-npm start
-```
 # Technology Stack
-- Platform:  Android && Website
-- Front-end: Kotlin && Html, css
-- Back-end:  Node.js, Express, mongoose
-- Database:  MongoDB
+- Platform:
+
+Android (for mobile)
+Website (for desktop)
+
+- Front-end:
+Kotlin (for Android)
+Flutter (for Ios)
+HTML, CSS (for Website)
+
+- Back-end:
+Node.js
+Express
+Mongoose (for MongoDB)
+
+- Database:
+MongoDB
