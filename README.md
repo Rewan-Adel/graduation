@@ -48,8 +48,6 @@ Admin
      Implement tags for easy property classification.
 - Monitor User Activity: 
     Keep track of user interactions and engagement.
-- Enforce Compliance: 
-    Ensure adherence to legal and platform-specific guidelines
 
 Agent & Seller
 - Create Property Listing: 
@@ -85,16 +83,12 @@ System
         Implement measures to identify and prevent fraudulent behavior.
 - Provide Property Valuation:
         Offer tools for users to estimate property values.
-- Offer Sentiment Analysis:
-        Analyze user reviews and sentiments.
 - Support Legal Compliance:
         Ensure the platform complies with legal standards.
 - Display Property Insights:
         Provide users with valuable insights into properties.
 - Enable Messaging and Notifications:
         Facilitate communication between users.
-- Support Mobile Devices: 
-       Ensure a seamless experience on mobile devices.
 - Ensure Data Security:
         Prioritize the security of user data.
 - Facilitate Social Media Integration: 
@@ -103,8 +97,6 @@ System
         Enable virtual property tours for a richer experience.
 - Provide Customer Support:
         Offer assistance to users as needed.
-- Handle Payments: 
-       Facilitate secure transactions on the platform.
 - Implement Machine Learning Features: 
        Leverage machine learning for enhanced features.
 - Offer Content and Information: 
@@ -117,20 +109,8 @@ System
         Foster a sense of community among platform users.
 - Manage Virtual Tours and AR/VR: 
        Oversee virtual tours and augmented/virtual reality features.
-- Provide Chatbot Assistance:
-        Implement a chatbot for user assistance.
-- Process Payments:
-        Handle financial transactions securely.
-- Manage User Data:
-        Administer and safeguard user data.
 - Generate Property Reports:
         Create reports for property analytics.
-- Manage Property Documents:
-        Organize and manage property-related documents.
-- Display Property History:
-        Showcase the historical data of properties.
-- Provide Mortgage and Financial Tools:
-        Offer tools for users to explore mortgage and financial options.
 
 # Technology Stack
 - Platform:
