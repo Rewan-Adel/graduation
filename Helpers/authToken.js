@@ -16,7 +16,7 @@ exports.verifyToken = asyncHandler(async(req, res, next)=>{
     let decoded = jwt.verify(token, process.env.JWT_SECRET);
     let user    = await User.findById(decoded?._id);
 
-    if(  user.resetToken && user.resetToken != null)  //when user doesn't complete reset password steps
+    if(user.resetToken && user.resetToken != null)  //when user doesn't complete reset password steps
         return next(new appError('You are not logged in! Please login for get access', 401));
 
     if(!user) return next(new appError('Invalid token', 404));

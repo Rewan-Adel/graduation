@@ -49,7 +49,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"otp\": 0\r\n\r\n\r\n}    ",
+									"raw": "{\r\n    \"otp\": 0\r\n  // sending id as a params\r\n}    ",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -320,7 +320,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"password\":\"\", //new password\r\n    \"confirmPass\":\"\"\r\n}",
+									"raw": "{\r\n    //get token and id from link at email which sent\r\n    \"password\":\"\", //new password\r\n    \"confirmPass\":\"\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
