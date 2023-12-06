@@ -99,7 +99,8 @@ exports.completeSignup = asyncHandler( async(req, res, next) =>{
     await user.save();
     return res.status(200).json({
         status: 'success',
-        user
+        user,
+        token:req.token
     })
 });
 
