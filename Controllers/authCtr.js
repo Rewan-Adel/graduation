@@ -100,7 +100,6 @@ exports.completeSignup = asyncHandler( async(req, res, next) =>{
     return res.status(200).json({
         status: 'success',
         user,
-        token:req.token
     })
 });
 
