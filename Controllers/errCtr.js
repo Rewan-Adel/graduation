@@ -24,17 +24,8 @@ const prodErrorHandler = (res, error)=>{
     }
 }
 
-const duplicateErrorHandler = (error)=>{
-    const msg = error.errors[0].message;
-    return new appError(msg, 400);
-};
 const castErrorHandler = (error)=>{
     const msg = `Invalid value ${error.value} for field ${error.path}`;
-    return new appError(msg, 400);
-};
-const validateErrorHandler = (error)=>{
-    const errorsMassages = Object.values(error.errors).map(val => val.message)
-    const msg = errorsMassages.join('. ');
     return new appError(msg, 400);
 };
 

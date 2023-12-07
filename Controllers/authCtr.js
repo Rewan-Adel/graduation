@@ -18,11 +18,17 @@ exports.signUp = asyncHandler( async(req, res, next) =>{
 
     user = await User.create(req.body);
 
-    let sending = await verifyEmail(user, res, next);
-    if(!sending){
-        await user.deleteOne();
-        return next(new appError('Something went wrong', 500));
-    }
+    // let sending = await verifyEmail(user, res, next);
+    // if(!sending){
+    //     await user.deleteOne();
+    //     return next(new appError('Something went wrong', 500));
+    // }
+    let token =  user.generateAuthToken();
+    res.cookie('jwt', token, {
+        httpOnly: true,
+        secure: true,
+        maxAge: 7*60*60*1000
+    });
     
     return res.status(200).json({
         status: 'success',
